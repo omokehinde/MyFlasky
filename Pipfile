@@ -23,6 +23,7 @@ flask-httpauth = "*"
 httpie = "*"
 coverage = "*"
 selenium = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
