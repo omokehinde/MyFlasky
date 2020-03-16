@@ -19,6 +19,7 @@ class Config:
     FLASKY_FOLLOWERS_PER_PAGE = 50
     FLASKY_COMMENTS_PER_PAGE = 30
     FLASKY_SLOW_DB_QUERY_TIME = 0.5
+    SSL_REDIRECT = False
 
     @staticmethod
     def init_app(app):
@@ -76,6 +77,10 @@ class HerokuConfig(ProductionConfig):
         file_handler = StreamHandler()
         file_handler.setLevel(logging.INFO)
         app.logger.addHandler(file_handler)
+        # handle reverse proxy server headers
+        from werkzeug.middleware.proxy_fix import ProxyFix
+        app.wsgi_app = ProxyFix(app.wsgi_app)
+    SSL_REDIRECT = True if os.environ.get('DYNO') else False
 
 config = {
     'development': DevelopmentConfig,
