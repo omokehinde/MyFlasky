@@ -70,7 +70,7 @@ def deploy():
     upgrade()
 
     # create or update user roles
-    Role.insert_roles()
+    Role.insert_role()
 
     # ensure all users are following themselves
     User.add_self_follows()
