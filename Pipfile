@@ -26,6 +26,7 @@ selenium = "*"
 gunicorn = "*"
 psycopg2 = "*"
 flask-sslify = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"
