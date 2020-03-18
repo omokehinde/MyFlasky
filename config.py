@@ -113,5 +113,6 @@ config = {
 
     'default': DevelopmentConfig,
     'heroku': HerokuConfig,
-    'docker': DockerConfig
+    'docker': DockerConfig,
+    'unix': UnixConfig
 }
